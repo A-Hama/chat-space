@@ -41,7 +41,7 @@
 |column|type|options|
 |------|----|------|
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integerZ|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Associations
 - belongs_to :user
