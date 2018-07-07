@@ -9,7 +9,8 @@
 
 ### Associations
 - has_many :messages
-- has_many :groups
+- has_many :members
+- has_many :groups, through :members
 
 ## messagesテーブル
 
@@ -31,8 +32,9 @@
 |name|string|null: false|
 
 ### Associations
-- has_many :users
+- has_many :users, through: members
 - has_many :messages
+- has_many :members
 
 ## membersテーブル
 
