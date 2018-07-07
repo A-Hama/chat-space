@@ -1,17 +1,18 @@
-# README
+# DB設計
 
-##usersテーブル
+## usersテーブル
 
 |column|type|options|
 |------|----|------|
 |name|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 
-###Associations
--has_many :messages
--has_many :groups
+### Associations
+- has_many :messages
+- has_many :groups
 
-##messagesテーブル
+## messagesテーブル
+
 |column|type|options|
 |------|----|------|
 |body|text|null: false, unique: true|
@@ -19,25 +20,27 @@
 |group_id|text|null: false, foreign_key: true|
 |user_id|text|null: false, foreign_key: true|
 
-###Associations
--belongs_to :user
--belongs_to :group
+### Associations
+- belongs_to :user
+- belongs_to :group
 
-##groupsテーブル
+## groupsテーブル
+
 |column|type|options|
 |------|----|------|
 |name|string|null: false|
 
-###Associations
--has_many :users
-_has_many :messages
+### Associations
+- has_many :users
+- has_many :messages
 
-##membersテーブル
+## membersテーブル
+
 |column|type|options|
 |------|----|------|
 |user_id|string|null: false, foreign_key: true|
 |group_id|string|null: false, foreign_key: true|
 
-###Associations
--belongs_to :user
--belongs_to :group
+### Associations
+- belongs_to :user
+- belongs_to :group
