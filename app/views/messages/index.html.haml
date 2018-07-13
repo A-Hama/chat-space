@@ -1,2 +1,47 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+%div{class: "chat"}
+  %div{class: "chat-side"}
+    %div{class: "chat-user clearfix"}
+      %h5 
+        Trial
+      %div{class: "chat-user__actions"}
+        %div{class: "chat-user__action", :href => "#"}
+          %i.fa.fa-edit
+          %i.fa.fa-cog
+
+    %ul{class: "chat-groups"}
+      %li{class: "chat-group"}
+        %a{class: "chat-group__link"}
+          %p{class: "chat-group__name"}
+            trial
+          %p{class: "chat-group__message"}
+            trial
+
+  %div{class: "chat-main"}
+    %div{class: "chat-header clearfix"}
+      %div{class: "chat-header--left"}
+        %h2
+          Trial
+        %p{class: "chat-header__users"}
+          Members:
+          %span{class: "chat-header__user"}
+            hamanosan
+      %div{class: "chat-header--right"}
+        %a{class: "chat-header__edit-btn"}
+          Edit
+    %div{class: "chat-body"}
+      %ul{class: "chat-messages"}
+        %li{class: "chat-message"}
+          %div{class: "chat-message__header clearfix"}
+            %p{class: "chat-message__name"}
+              Hamanosan
+            %p{class: "chat-message__time"}
+              2018/07/07 08:24:33
+          %p{class: "chat-message__body"}
+            yes!
+    %div{class: "chat-footer"}
+      %form{class: "new_message"}
+        %div{class: "chat-footer__body"}
+          %textarea{row: "1", placeholder: "type a message", id: "message_body"}
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+        %input{type: "submit", name: "commit", value: "Send"}
