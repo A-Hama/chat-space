@@ -11,6 +11,7 @@ body, html{
   background-color: #fafafa;
 }
 
+
 .chat{
   min-width: 980px;
   height: 100%;
@@ -36,12 +37,12 @@ body, html{
         font-size: 16px;
       }
 
-      .chat-user__actions{
+      &__actions{
         float: right;
         padding: 20px;
         line-height: 60px;
 
-        .chat_user__action{
+        &__action{
           float: left;
 
           .fa-edit{
@@ -59,11 +60,11 @@ body, html{
 
       .chat-group{
 
-        .chat-group__link{
+        &__link{
           display: block;
           padding: 20px 20px;
 
-          .chat-group__name{
+          &__name{
             font-size: 15px;
             padding: 0 0 5px 0;
           }
@@ -156,20 +157,20 @@ body, html{
               height: 0;
             }
 
-            .chat-message__name{
+            &__name{
               float: left;
               margin-bottom: 10px;
               font-weight: 600;
             }
 
-            .chat-message__time{
+            &__time{
               float: left;
               margin-left: 10px;
               color: #aaa;
               font-size: 12px;
             }
 
-            .chat-message__body{
+            &__body{
               font-size: 14px;
             }
       }
