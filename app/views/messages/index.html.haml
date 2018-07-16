@@ -1,49 +1,51 @@
-%div{class: "chat"}
-  %div{class: "chat-side"}
-    %div{class: "chat-user clearfix"}
+.chat
+  .chat-side
+    .chat-user.clearfix
       %h5
         = current_user.name
-      %div{class: "chat-user__actions"}
-        %div{class: "chat-user__action"}
+      .chat-user__actions
+        .chat-user__action
           = link_to new_group_path do
             = fa_icon 'pencil-square-o', class: 'icon'
           = link_to edit_user_path(current_user) do
             = fa_icon 'cog', class: 'icon'
 
     %ul{class: "chat-groups"}
-      %li{class: "chat-group"}
       - current_user.groups.each do |group|
-        %a{class: "chat-group__link"}
-          %p{class: "chat-group__name"}
-            = group.name
-          %p{class: "chat-group__message"}
-            メッセージはありません。
+        .chat-group
+          .chat-group__link
+            .chat-group__name
+              = link_to group.name, group_messages_path(group)
+              .chat-group__message
+                = group.show_last_message
 
-  %div{class: "chat-main"}
-    %div{class: "chat-header clearfix"}
-      %div{class: "chat-header--left"}
+  .chat-main
+    .chat-header.clearfix
+      .chat-header--left
         %h2
           = @group.name
         %p{class: "chat-header__users"}
           Members:
           %span{class: "chat-header__user"}
             hamanosan
-      %div{class: "chat-header--right"}
+      .chat-header--right
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
-    %div{class: "chat-body"}
+    .chat-body
       %ul{class: "chat-messages"}
-        %li{class: "chat-message"}
-          %div{class: "chat-message__header clearfix"}
-            %p{class: "chat-message__name"}
-              Hamanosan
-            %p{class: "chat-message__time"}
-              2018/07/07 08:24:33
-          %p{class: "chat-message__body"}
-            yes!
-    %div{class: "chat-footer"}
-      %form{class: "new_message"}
-        %div{class: "chat-footer__body"}
-          %textarea{row: "1", placeholder: "type a message", id: "message_body"}
-          %label.upload-label{for: "upload-icon"}
-            %i.fa.fa-picture-o
-        %input{type: "submit", name: "commit", value: "Send"}
+        - @messages.each do |message|
+          %li{class: "chat-message"}
+            .chat-message__header.clearfix
+              %p{class: "chat-message__name"}
+                = message.user.name
+              %p{class: "chat-message__time"}
+                = message.created_at
+            %p{class: "chat-message__body"}
+              = message.body
+    .chat-footer
+      .chat-footer__body
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, class: 'form__message', placeholder: 'type a message'
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'form__submit'

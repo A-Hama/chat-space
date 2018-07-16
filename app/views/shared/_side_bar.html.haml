@@ -10,10 +10,10 @@
           = fa_icon 'cog', class: 'icon'
 
   %ul{class: "chat-groups"}
-    %li{class: "chat-group"}
     - current_user.groups.each do |group|
-      %a{class: "chat-group__link"}
-        %p{class: "chat-group__name"}
-          = group.name
-        %p{class: "chat-group__message"}
-          メッセージはありません。
+      %li{class: "chat-group"}
+        %a{class: "chat-group__link"}
+          %p{class: "chat-group__name"}
+            = link_to group.name, group_messages_path(group)
+          %p{class: "chat-group__message"}
+            メッセージはありません。

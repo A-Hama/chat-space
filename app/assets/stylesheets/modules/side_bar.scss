@@ -39,24 +39,24 @@
 
     .chat-groups{
       margin: 0;
-      padding: 0;
+      padding: 20px;
       color: #FFFFFF;
-      list-style: none;
+
+      li{
+        list-style: none;
+      }
 
       .chat-group{
 
-        &__link{
-          display: block;
-          padding: 20px 20px;
+        &__name{
+          font-size: 15px;
+          padding: 20px 0 5px 0;
+          font-weight: bold;
+        }
 
-          &__name{
-            font-size: 15px;
-            padding: 0 0 5px 0;
-          }
-
-          .chat-group__message{
-          font-size: 11px;
-          }
+        &__message{
+        font-size: 11px;
+        padding-bottom: 20px;
         }
       }
     }
