@@ -26,8 +26,9 @@
           = @group.name
         %p{class: "chat-header__users"}
           Members:
-          %span{class: "chat-header__user"}
-            hamanosan
+          - @group.members.each do |member|
+            %span{class: "chat-header__user"}
+              = member.user.name
       .chat-header--right
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
