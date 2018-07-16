@@ -44,9 +44,11 @@ body, html{
 
         &__action{
           float: left;
+          line-height: 60px;
 
-          .fa-edit{
+          .fa{
             color: white;
+            // float: left;
           }
         }
       }
