@@ -42,6 +42,10 @@
                 = message.created_at
             %p{class: "chat-message__body"}
               = message.body
+            -if message.image.present?
+              %P{class: "chat-message__image"}
+                = image_tag message.image.url
+
     .chat-footer
       .chat-footer__body
         = form_for [@group, @message] do |f|

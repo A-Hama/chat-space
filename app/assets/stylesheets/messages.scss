@@ -138,14 +138,14 @@ body, html{
       line-height: 20px;
 
       ul{
-        margin: 16px 0 16px 0;
+        
       }
 
       .chat-messages{
-        position: absolute;
+        position: relative;
         right: 40px;
         left: 40px;
-        padding: 0;
+        padding: 0 0 20px 0;
         list-style: none;
 
         .chat-message{
