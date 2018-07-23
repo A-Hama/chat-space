@@ -11,9 +11,9 @@
 
   %ul{class: "chat-groups"}
     - current_user.groups.each do |group|
-      %li{class: "chat-group"}
-        %a{class: "chat-group__link"}
-          %p{class: "chat-group__name"}
+      .chat-group
+        .chat-group__link
+          .chat-group__name
             = link_to group.name, group_messages_path(group)
-          %p{class: "chat-group__message"}
-            メッセージはありません。
+            .chat-group__message
+              = group.show_last_message
