@@ -32,18 +32,18 @@
       .chat-header--right
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
-      %ul{class: "chat-messages"}
+      %ul.chat-messages
         - @messages.each do |message|
-          %li{class: "chat-message"}
+          %li.chat-message
             .chat-message__header.clearfix
-              %p{class: "chat-message__name"}
+              %p.chat-message__name
                 = message.user.name
-              %p{class: "chat-message__time"}
+              %p.chat-message__time
                 = message.created_at
-            %p{class: "chat-message__body"}
+            %p.chat-message__body
               = message.body
           -if message.image.present?
-            %P{class: "chat-message__image"}
+            %P.chat-message__image
               = image_tag message.image.url
 
     .chat-footer
