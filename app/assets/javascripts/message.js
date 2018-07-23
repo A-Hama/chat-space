@@ -22,9 +22,8 @@ $(function(){
   $("#new_message").submit(function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var href = window.location.href;
     $.ajax({
-      url: href,
+      url:  $(this).attr('action'),
       type: "POST",
       data: formData,
       dataType: 'json',
