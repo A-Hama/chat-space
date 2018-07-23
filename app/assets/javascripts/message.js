@@ -15,6 +15,10 @@ $(function(){
     return html;
   }
 
+  function scrollTop(){
+    $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
+  }
+
   $("#new_message").submit(function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -30,10 +34,9 @@ $(function(){
     .done(function(data){
         var html = buildHTML(data);
         $('.chat-messages').append(html);
-        $('.form__message').val('');
-        $('#message_image').val('');
+        $('#new_message')[0].reset();
         $(".form__submit").prop('disabled', false);
-        $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
+        scrollTop();
     })
     .fail(function(){
       alert('入力してください');
