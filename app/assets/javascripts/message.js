@@ -39,7 +39,7 @@ $(function(){
         scrollTop();
     })
     .fail(function(){
-      alert('入力してください');
+      alert('error');
       $(".form__submit").prop('disabled', false);
       $('.new_message').val('');
     })
