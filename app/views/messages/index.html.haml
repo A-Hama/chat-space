@@ -32,16 +32,9 @@
       .chat-header--right
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
-      %ul{class: "chat-messages"}
-        - @messages.each do |message|
-          %li{class: "chat-message"}
-            .chat-message__header.clearfix
-              %p{class: "chat-message__name"}
-                = message.user.name
-              %p{class: "chat-message__time"}
-                = message.created_at
-            %p{class: "chat-message__body"}
-              = message.body
+      %ul.chat-messages
+        = render partial: 'messages/message', collection: @messages
+
     .chat-footer
       .chat-footer__body
         = form_for [@group, @message] do |f|
