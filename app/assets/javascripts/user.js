@@ -56,6 +56,21 @@ $(function(){
   });
 
 
+  $('.chat-group-form__action-btn').on("click", function(){
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = window.location.origin + '/groups';
+
+    $.ajax({
+      url: href,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+  });
+
   $(document).on("click", ".user-search-add", function(){
     var userId = $(this).data('user-id');
     var userName = $(this).data('user-name')
