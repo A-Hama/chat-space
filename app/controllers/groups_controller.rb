@@ -12,7 +12,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.create(group_params)
     if @group.save
-      redirect_to group_messages_path(@group), notice: 'グループを作成しました'
+      respond_to do |format|
+        format.json
+        format.html { redirect_to group_messages_path(@group), notice: 'グループを作成しました'}
+      end
     else
       render :new
     end
