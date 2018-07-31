@@ -62,14 +62,17 @@ $(function(){
       data: { id: message_id },
       dataType: 'json',
     })
-
-    .always(function(data) {
+    .done(function(data) {
       var html;
       data.forEach(function(message){
         html = buildHTML(message);
       });
       $('.chat-messages').append(html);
       scrollTop();
+    })
+
+    .fail(function(){
+      alert('error');
     })
   }
 });
