@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     var image = message.image ? `<img src=${ message.image }>` : " ";
     var html = `
-    <li class="chat-message">
+    <li class="chat-message" data-message-id="${message.id}">
       <div class="chat-message__header clearfix">
         <p class="chat-message__name">${ message.user_name }</p>
         <p class="chat-message__time">${ message.date }</p>
@@ -19,10 +19,12 @@ $(function(){
     $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
   }
 
+
   $("#new_message").submit(function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
+
     $.ajax({
       url: url,
       type: "POST",
@@ -32,7 +34,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-        var html = buildHTML(data);
+      var html = buildHTML(data);
         $('.chat-messages').append(html);
         $('#new_message')[0].reset();
         $(".form__submit").prop('disabled', false);
@@ -44,5 +46,30 @@ $(function(){
       $('.new_message').val('');
     })
   });
-});
 
+  $(function(){
+    setInterval(update, 5000);
+  });
+
+  function update(){
+    var message_id = $('.chat-message:last').data('message-id');
+
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: { id: message_id },
+      dataType: 'json',
+    })
+    .done(function(data) {
+      var html;
+      data.forEach(function(message){
+        html = buildHTML(message);
+      });
+      $('.chat-messages').append(html);
+      scrollTop();
+    })
+    .fail(function(){
+      alert('error');
+    })
+  }
+});
