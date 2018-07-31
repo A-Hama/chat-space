@@ -33,7 +33,6 @@ $(function(){
       processData: false,
       contentType: false
     })
-
     .done(function(data){
       var html = buildHTML(data);
         $('.chat-messages').append(html);
@@ -41,7 +40,6 @@ $(function(){
         $(".form__submit").prop('disabled', false);
         scrollTop();
     })
-
     .fail(function(){
       alert('error');
       $(".form__submit").prop('disabled', false);
@@ -57,7 +55,7 @@ $(function(){
     var message_id = $('.chat-message:last').data('message-id');
 
     $.ajax({
-      url: window.location.href,
+      url: location.href,
       type: 'GET',
       data: { id: message_id },
       dataType: 'json',
@@ -70,7 +68,6 @@ $(function(){
       $('.chat-messages').append(html);
       scrollTop();
     })
-
     .fail(function(){
       alert('error');
     })
