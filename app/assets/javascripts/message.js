@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var image = message.image ? `<img src=${ message.image }>` : " ";
+    var image = message.image ? `<img src="${ message.image }">` : " ";
     var html = `
     <li class="chat-message" data-message-id="${message.id}">
       <div class="chat-message__header clearfix">
@@ -60,16 +60,13 @@ $(function(){
       data: { id: message_id },
       dataType: 'json',
     })
-    .done(function(data) {
+    .always(function(data) {
       var html;
       data.forEach(function(message){
         html = buildHTML(message);
       });
       $('.chat-messages').append(html);
       scrollTop();
-    })
-    .fail(function(){
-      alert('error');
     })
   }
 });
