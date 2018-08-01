@@ -60,9 +60,9 @@ $(function(){
       data: { id: message_id },
       dataType: 'json',
     })
-    .always(function(data) {
+    .always(function(message) {
       var html;
-      data.forEach(function(message){
+      message.forEach(function(message){
         html = buildHTML(message);
       });
       $('.chat-messages').append(html);
