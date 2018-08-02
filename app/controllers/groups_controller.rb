@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def index
-    current_user
+    render 'shared/side_bar'
   end
 
   def new
