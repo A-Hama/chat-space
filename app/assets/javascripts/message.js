@@ -19,7 +19,6 @@ $(function(){
     $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
   }
 
-
   $("#new_message").submit(function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -33,7 +32,9 @@ $(function(){
       processData: false,
       contentType: false
     })
+
     .done(function(data){
+      console.log('ok!')
       var html = buildHTML(data);
         $('.chat-messages').append(html);
         $('#new_message')[0].reset();
