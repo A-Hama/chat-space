@@ -58,7 +58,7 @@ $(function(){
       url: location.href,
       type: 'GET',
       data: { id: message_id },
-      dataType: 'json',
+      dataType: 'json'
     })
     .always(function(message) {
       var html;
