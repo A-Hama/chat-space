@@ -32,7 +32,6 @@ $(function(){
       processData: false,
       contentType: false
     })
-
     .done(function(data){
       console.log('ok!')
       var html = buildHTML(data);
@@ -48,26 +47,26 @@ $(function(){
     })
   });
 
-  $(function(){
-    setInterval(update, 5000);
-  });
+  // $(function(){
+  //   setInterval(update, 5000);
+  // });
 
-  function update(){
-    var message_id = $('.chat-message:last').data('message-id');
+  // function update(){
+  //   var message_id = $('.chat-message:last').data('message-id');
 
-    $.ajax({
-      url: location.href,
-      type: 'GET',
-      data: { id: message_id },
-      dataType: 'json'
-    })
-    .always(function(message) {
-      var html;
-      message.forEach(function(message){
-        html = buildHTML(message);
-      });
-      $('.chat-messages').append(html);
-      scrollTop();
-    })
-  }
+  //   $.ajax({
+  //     url: location.href,
+  //     type: 'GET',
+  //     data: { id: message_id },
+  //     dataType: 'json'
+  //   })
+  //   .always(function(message) {
+  //     var html;
+  //     message.forEach(function(message){
+  //       html = buildHTML(message);
+  //     });
+  //     $('.chat-messages').append(html);
+  //     scrollTop();
+  //   })
+  // }
 });
