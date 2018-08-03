@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
     logger.debug(@message.image)
     logger.debug(@message)
     logger.debug(@message.save)
+    logger.debug(@message.image)
     if @message.save
       respond_to do |format|
         format.html{ redirect_to group_messages_path(@group) , notice: 'メッセージが送信されました'}
