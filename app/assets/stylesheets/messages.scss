@@ -46,9 +46,9 @@ body, html{
           float: left;
           line-height: 60px;
 
-          .fa{
-            color: white;
-          }
+        .icon-white {
+             color: white;
+            }
         }
       }
     }
@@ -67,14 +67,17 @@ body, html{
         &__name{
           font-size: 15px;
           padding: 20px 0 5px 0;
-          color: white; 
           font-weight: bold;
+           a{
+            color: white;
+            text-decoration: none;
+          }
         }
 
         &__message{
           font-size: 11px;
           padding-bottom: 20px;
-        } 
+        }
       }
     }
   }
